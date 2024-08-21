@@ -24,7 +24,7 @@ const ContactPage = () => {
       >
         <div className="text-center">
           <h3 className="text-white text-3xl font-bold">
-            <span className="text-emerald-700">Let's Work</span> {" "}Together!
+            <span className="text-emerald-700">Let&apos;s Work</span> {" "} Together!
           </h3>
           <p className="text-white text-lg">I'd love to hear about your project or how I can help you build something amazing.</p>
         </div>

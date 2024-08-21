@@ -34,7 +34,7 @@ const NavBar = () => {
                   delay: index * 0.3,
                  }} 
                  key={route.id}>
-                 <Link  className={cn("text-white", activeLink && "text-emerald-600")} href={route.path}>{route.name}</Link>
+                 <Link  className={cn("text-white", activeLink && "text-emerald-600 font-bold")} href={route.path}>{route.name}</Link>
                </MotionList>
              )
            })}

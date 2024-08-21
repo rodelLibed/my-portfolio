@@ -2,6 +2,7 @@ import React from 'react'
 import { MotionButton, MotionDiv, MotionImage, MotionTabs } from '../utils/motionTags'
 import { transition, variants } from '../utils/framer_variants'
 import { TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import Image from 'next/image'
 import Link from 'next/link'
 
 
@@ -92,7 +93,7 @@ const AboutPage = () => {
               {LOGO.map((skill)=>{
                 return (
                 <div key={skill.id} className='w-14 flex flex-col justify-center items-center gap-1'>
-                  <img src={skill.logo} alt="" width="30" height="30" />
+                  <Image src={skill.logo} alt="Logo" width={30} height={30} />
                   <h3 className='text-sm font-medium text-center'>{skill.name}</h3>
                 </div>
                 )
