@@ -1,4 +1,4 @@
-import { Github, Linkedin, AtSign, MoveRight, MoveUpRight  } from "lucide-react"
+import { Github, Linkedin, AtSign, MoveRight  } from "lucide-react"
 import { TECH, PROJECTS } from "./utils/data"
 import Image from "next/image"
 import Link from "next/link"
@@ -27,9 +27,13 @@ export default function Home() {
            <section className="text-white mt-24 sm:mt-32 lg:mt-0">
              <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">About</h1>
              <p className="space-y-5 text-lg text-white/50 font-light">
-             My main focus these days is building responsive and stylish web and mobile apps.
-             I'm all about learning new things and love hitting the road on my motorcycle to beaches
-              and mountains when I'm not in front of the screen. Life's treating me well!
+             I am an enthusiastic and self-motivated individual with a passion for front-end development.
+              I have dedicated time to learning and honing my skills to become a proficient front-end developer.
+               My journey into the world of coding has been fueled by a deep curiosity, a commitment to staying 
+               current with industry trends, and a strong willingness to learn. I am always eager to expand my knowledge 
+               and adapt to new technologies to enhance my development skills.
+               When I&apos;m not in front of the screen, you&apos;ll often find me with a guitar in hand, exploring new tunes and rhythms.
+               Grateful for the constant blessings in my life and the opportunities that come my way. God is so good ❤️
              </p>
            </section>
           {/* Techstack Section */}
