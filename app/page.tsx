@@ -1,37 +1,100 @@
-import { ArrowUpRight } from "lucide-react";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { MotionDiv } from "./utils/motionTags";
-import { transition, variants } from "./utils/framer_variants";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-
-
+import { Github, Linkedin, AtSign, MoveRight, MoveUpRight  } from "lucide-react"
+import { TECH, PROJECTS } from "./utils/data"
+import Image from "next/image"
+import Link from "next/link"
+import Card from "@/components/Card"
 export default function Home() {
   return (
-          <div className="h-dvh overflow-hidden flex justify-center items-center ">
-             <MotionDiv 
-                initial="initial" 
-                animate="animate" 
-                variants={variants.moveRight}
-                transition={transition.moveRight}
-                className="flex flex-col items-center gap-5 relative">
-               <p className=" text-emerald-500 text-xl font-medium">Frontend Developer</p>
-                <h1 className="text-5xl font-bold text-center text-white">Hello, my name is Rodel Libed</h1>
-                <p className="text-center text-white/55 text-xl mx-5">
-                  an aspiring self-taught frontend developer 
-                  with a passion for creating beautiful and functional web applications.
-                </p>
-                <div className="flex flex-col gap-3">
-                 <HoverBorderGradient className="flex gap-2">
-                   <span>Download CV</span>
-                   <ArrowUpRight />
-                 </HoverBorderGradient>
-                </div>
-                <div className="flex gap-3">
-                <FaGithub size={30} color="white"  />
-                <FaLinkedinIn size={30} color="white" />
-                </div>  
-             </MotionDiv>
-          </div>  
-    
+    <main 
+    className="h-auto lg:h-full antialiased 
+    max-w-[1300px] mx-auto p-6 sm:px-16 md:px-20
+    py-[50px] md:py-[90px]">
+         {/* Hero Section */}
+      
+           <section className="flex flex-col lg:justify-between justify-normal w-full lg:w-[550px] mr-auto lg:fixed text-white space-y-3 mb-3 lg:mb-0">
+               <h1 className="md:text-5xl text-4xl font-bold inline-block">Rodel Libed</h1>
+               <h2 className="font-medium text-secondary text-xl md:text-2xl">Frontend Developer</h2>
+               <p className="text-lg max-w-[350px] text-white/50 font-light">I build responsive, elegant products and digital experiences for the web and mobile.</p>
+               <div className="flex gap-3 text-white/50">
+                <AtSign size={25} />
+                <Github  size={25} />
+                <Linkedin  size={25}/>
+               </div>
+           </section>
+
+         <div className="w-full lg:w-1/2 ml-0 lg:ml-auto relative pb-20 sm:pb-0">
+           {/* About Section */}
+           <section className="text-white mt-24 sm:mt-32 lg:mt-0">
+             <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">About</h1>
+             <p className="space-y-5 text-lg text-white/50 font-light">
+             My main focus these days is building responsive and stylish web and mobile apps.
+             I'm all about learning new things and love hitting the road on my motorcycle to beaches
+              and mountains when I'm not in front of the screen. Life's treating me well!
+             </p>
+           </section>
+          {/* Techstack Section */}
+           <section className="text-white my-24 sm:my-32">
+              <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">Technologies</h1>
+              <ul className="inline-flex flex-wrap gap-3">
+                {TECH.map((techstacks)=>(
+                   <li key={techstacks.id} className="rounded-full flex items-center space-x-2 px-3 py-2 bg-emerald-500/20">
+                     <img src={techstacks.icon} alt="" width={20} height={20} />
+                     <span>{techstacks.name}</span>
+                   </li>
+                ))}
+              </ul>
+           </section>
+          {/* Experience Section */}
+           <section className="text-white my-24 sm:my-32">
+            <div className="rounded-xl shadow-lg transition-all duration-300 ease-in-out cursor-pointer
+                hover:bg-emerald-500/20 hover:backdrop-blur-sm hover:-translate-y-1 hover:shadow-xl p-4">
+             <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">Experience</h1>
+             <span className="text-sm text-white/50">March-May 2023</span>
+             <h4>Frontend Developer Intern - Pixel8</h4>
+             <span className="text-sm text-white/50">Legazpi City Albay, Philippines</span>
+             <p className="mt-3 text-sm text-white/50">
+              ➡️ Joined in a existing project called JuanHR Mobile <br />
+              ➡️ Collaborated with the design team to transform mockups and wireframes into responsive and visually appealing web interfaces. <br />
+              ➡️ Identifying and resolving frontend issues, such as layout problems and responsive design challenges <br />
+              ➡️ Developed some features needed to the project <br />
+              ➡️ We used technologies like Vue.js, Quasar Framework, and Axios for data fetching to build the web app
+             </p>
+
+             <div className="inline-flex items-center gap-1 mt-2 group">
+             <h2>View Resume</h2>
+             <MoveRight className="transition-transform duration-100 ease-in-out group-hover:translate-x-2" />
+             </div>
+            </div>
+           </section>
+
+           {/* Projects */}
+           <section className="text-white"> 
+            <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">Projects</h1>
+            <div className="space-y-3 ">
+             {PROJECTS.map((data)=>(
+              <div key={data.id}>
+                 <Card  project={data} />
+              </div>
+             ))}
+            </div>
+
+             
+             <div className="inline-flex items-center gap-1 mt-2 group">
+             <h2 className=" ">Show more  <span className="block h-[2px] w-0 bg-emerald-500 transition-all  duration-300 ease-in-out group-hover:w-full"></span></h2>
+             <MoveRight className="transition-transform duration-100 ease-in-out group-hover:translate-x-2" />
+             </div>
+           </section>
+
+           <section id="footer" className="mt-20">
+              <div className="flex flex-col md:flex-row justify-between items-center ">
+              <p className="text-sm font-light text-white/50">All rights reserved. © 2024 <span className="text-white font-medium"> Rodel Libed.</span></p>
+              <Image src="/cat.gif" height={100} width={100} alt="My cat" />
+              </div>
+           </section>
+
+         </div>
+        
+       
+    </main>
   )
 }
