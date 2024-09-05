@@ -64,11 +64,7 @@ export const TECH = Object.freeze([
         name: "Vue.js",
         icon: "/logos--vue.png"
     },
-    {
-        id: 13,
-        name: "Nuxt.js",
-        icon: "/logos--nuxt-icon.png"
-    },
+    
     
 
 ])
@@ -97,8 +93,22 @@ export const PROJECTS = [
         title: 'My Portfolio',
         github: "Frontend Development",
         linkurl: "https://my-portfolio-kappa-six-66.vercel.app/",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, non dolorum!",
-        image: "image",
+        desc: "This my portfolio",
+        image: "/myportfolio.png",
         stack: ["React.js", "Next.js", "TypeScript", "Framer Motion"]
     },
+]
+
+
+export const INTEREST = [
+     {  
+        id: 1,
+        name: "Svelte.js",
+        icon: "/devicon--svelte.png"
+    },  
+    {  
+        id: 2,
+        name: "Hono.js",
+        icon: "/logos--hono.png"
+    },  
 ]

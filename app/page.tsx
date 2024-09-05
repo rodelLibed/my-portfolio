@@ -1,25 +1,60 @@
+"use client"
 import { Github, Linkedin, AtSign, MoveRight  } from "lucide-react"
-import { TECH, PROJECTS } from "./utils/data"
+import { TECH, PROJECTS, INTEREST } from "./utils/data"
 import Image from "next/image"
 import Link from "next/link"
 import Card from "@/components/Card"
+import { useState, useEffect } from "react"
+
 export default function Home() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+  const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  }
+
+  useEffect(() => {
+    // Smooth the cursor movement with a small delay
+    const timeout = setTimeout(() => {
+      setSmoothPosition({ x: cursorPosition.x, y: cursorPosition.y });
+    }, 100); // Adjust the delay as needed
+
+    return () => clearTimeout(timeout);
+  }, [cursorPosition]);
+
   return (
+   
     <main 
-    className="h-auto lg:h-full antialiased 
+    className="relative group h-auto lg:h-full antialiased 
     max-w-[1300px] mx-auto p-6 sm:px-16 md:px-20
-    py-[50px] md:py-[90px]">
+    py-[50px] md:py-[90px]" onMouseMove={handleMouseMove}>
          {/* Hero Section */}
       
-           <section className="flex flex-col lg:justify-between justify-normal w-full lg:w-[550px] mr-auto lg:fixed text-white space-y-3 mb-3 lg:mb-0">
+
+           <section className=" flex flex-col lg:justify-between justify-normal w-full lg:w-[550px] mr-auto lg:fixed text-white space-y-3 mb-3 lg:mb-0">
+           
+           <div
+          className="absolute bg-gradient-to-r from-emerald-400 to-emerald-700 rounded-full opacity-0 group-hover:opacity-50 pointer-events-none transition-all duration-500 ease-out  transform scale-100 group-hover:scale-110 shadow-2xl"
+          style={{
+            width: '600px', // Increased size for more visibility
+            height: '600px',
+            top: smoothPosition.y - 300, // Adjusted for larger size
+            left: smoothPosition.x - 300,
+            transform: 'translate(-50%, -50%)',
+             // Optional border
+          }}
+        ></div>
+      
                <h1 className="md:text-5xl text-4xl font-bold inline-block">Rodel Libed</h1>
                <h2 className="font-medium text-secondary text-xl md:text-2xl">Frontend Developer</h2>
-               <p className="text-lg max-w-[350px] text-white/50 font-light">I build responsive, elegant products and digital experiences for the web and mobile.</p>
+               <p className="text-lg max-w-[350px] text-white/50 font-light">I create responsive website and curios mostly in frontend devlopment</p>
                <div className="flex gap-3 text-white/50">
-                <AtSign size={25} />
-                <Github  size={25} />
-                <Linkedin  size={25}/>
+              
+               <Link href={"/https://github.com/rodelLibed"} target="_blank"><Github  size={25} /></Link> 
+                <Link href={"/https://www.linkedin.com/in/rodel-libed-628394272/"} target="_blank"><Linkedin  size={25}/></Link>
                </div>
+             
            </section>
 
          <div className="w-full lg:w-1/2 ml-0 lg:ml-auto relative pb-20 sm:pb-0">
@@ -48,6 +83,19 @@ export default function Home() {
                 ))}
               </ul>
            </section>
+
+           {/* Currently Learning Section */}
+           <section className="text-white ">
+              <h1 className="text-xl md:text-2xl font-semibold text-emerald-700 mb-4">Currently Learning</h1>
+              <ul className="inline-flex flex-wrap gap-3">
+                {INTEREST.map((techstacks)=>(
+                   <li key={techstacks.id} className="rounded-full flex items-center space-x-2 px-3 py-2 bg-emerald-500/20">
+                     <img src={techstacks.icon} alt="" width={20} height={20} />
+                     <span>{techstacks.name}</span>
+                   </li>
+                ))}
+              </ul>
+           </section>
           {/* Experience Section */}
            <section className="text-white my-24 sm:my-32">
             <div className="rounded-xl shadow-lg transition-all duration-300 ease-in-out cursor-pointer
@@ -65,7 +113,9 @@ export default function Home() {
              </p>
 
              <div className="inline-flex items-center gap-1 mt-2 group">
-             <h2>View Resume</h2>
+             <Link href={"/myresume.pdf"} target="_blank">
+                View Resume  
+             </Link>
              <MoveRight className="transition-transform duration-100 ease-in-out group-hover:translate-x-2" />
              </div>
             </div>
@@ -83,10 +133,10 @@ export default function Home() {
             </div>
 
              
-             <div className="inline-flex items-center gap-1 mt-2 group">
+            {/* <div className="inline-flex items-center gap-1 mt-2 group">
              <h2 className=" ">Show more  <span className="block h-[2px] w-0 bg-emerald-500 transition-all  duration-300 ease-in-out group-hover:w-full"></span></h2>
              <MoveRight className="transition-transform duration-100 ease-in-out group-hover:translate-x-2" />
-             </div>
+             </div> */}
            </section>
 
            <section id="footer" className="mt-20">

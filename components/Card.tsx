@@ -29,8 +29,8 @@ const Card = ({project}:ProjectCardProps) => {
              <div className='space-y-3  w-full  h-auto md:h-full'>
              <h1>{project.title}</h1>
                 <div className="flex items-center gap-3 text-sm text-white/50">
-                  <Link className="flex items-center gap-1" href={project.github}>Github <Github size={16} /></Link>
-                  <Link className="flex items-center gap-1" href={project.linkurl}>Link <MoveUpRight size={16} /></Link>
+                  <Link className="flex items-center gap-1" href={project.github} target='_blank'>Github <Github size={16} /></Link>
+                  <Link className="flex items-center gap-1" href={project.linkurl} target='_blank'>Link <MoveUpRight size={16} /></Link>
                 </div>
                 <p className='text-sm font-light text-white/50'>{project.desc}</p>
                 <ul className="inline-flex flex-wrap gap-3 py-2">
