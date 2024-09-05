@@ -51,8 +51,8 @@ export default function Home() {
                <p className="text-lg max-w-[350px] text-white/50 font-light">I create responsive website and curios mostly in frontend devlopment</p>
                <div className="flex gap-3 text-white/50">
               
-               <Link href={"/https://github.com/rodelLibed"} target="_blank"><Github  size={25} /></Link> 
-                <Link href={"/https://www.linkedin.com/in/rodel-libed-628394272/"} target="_blank"><Linkedin  size={25}/></Link>
+               <Link href={"https://github.com/rodelLibed"} target="_blank"><Github  size={25} /></Link> 
+                <Link href={"https://www.linkedin.com/in/rodel-libed-628394272/"} target="_blank"><Linkedin  size={25}/></Link>
                </div>
              
            </section>
